@@ -24,7 +24,9 @@ namespace RateCalc.Engine.Test
             var first = parts.First();
             first.Should().NotBeNull();
             first.Parts.Count.Should().BeGreaterThan(2);
-            first.Parts[0].Should().NotBeNull();
+            first.Parts[0].Should().Be("Alex");
+            first.Parts[1].Should().Be("101");
+            first.Parts[2].Should().Be("55.5");
         }
     }
 }
