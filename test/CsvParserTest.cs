@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+
 using Xunit;
 using RateCalc.Engine;
 using FluentAssertions;
@@ -19,6 +21,10 @@ namespace RateCalc.Engine.Test
             var parts = sut.Read("market.csv");
 
             parts.Should().NotBeNull();
+            var first = parts.First();
+            first.Should().NotBeNull();
+            first.Parts.Count.Should().BeGreaterThan(2);
+            first.Parts[0].Should().NotBeNull();
         }
     }
 }
