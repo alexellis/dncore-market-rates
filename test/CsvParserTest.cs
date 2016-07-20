@@ -28,5 +28,29 @@ namespace RateCalc.Engine.Test
             first.Parts[1].Should().Be("101");
             first.Parts[2].Should().Be("55.5");
         }
+
+        [Fact]
+        public void ReturnEmptyGivenNoDataLines_WithTrailingNewLine_Test() 
+        {
+            var fileSource = new Mock<IFileSource>();
+            fileSource.Setup(m => m.Read(It.IsAny<string>())).Returns("Lender,Rate,Available\n");
+
+            var sut = new CsvParser(fileSource.Object);
+            var parts = sut.Read("market.csv");
+
+            parts.Should().BeEmpty();
+        }
+
+        [Fact]
+        public void ReturnEmptyGivenNoDataLines_Test() 
+        {
+            var fileSource = new Mock<IFileSource>();
+            fileSource.Setup(m => m.Read(It.IsAny<string>())).Returns("Lender,Rate,Available");
+
+            var sut = new CsvParser(fileSource.Object);
+            var parts = sut.Read("market.csv");
+
+            parts.Should().BeEmpty();
+        }
     }
 }
