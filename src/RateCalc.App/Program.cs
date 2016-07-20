@@ -11,6 +11,7 @@ namespace RateCalc.App
         {
             Console.WriteLine(File.ReadAllText("market.csv"));
             new Rates().Show();
+            
         }
     }
 }

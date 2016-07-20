@@ -29,10 +29,12 @@ namespace RateCalc.Engine
 
         var list = new List<CsvLine>();
         for(int i = 1; i < lines.Count(); i++) {
-          var csvLine = new CsvLine();
-          var line = lines[i];
-          AddParts(line, csvLine);
-          list.Add(csvLine);
+          if(lines[i].Length > 0) {
+            var csvLine = new CsvLine();
+            var line = lines[i];
+            AddParts(line, csvLine);
+            list.Add(csvLine);
+          }
         }
 
         return list;
