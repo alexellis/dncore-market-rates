@@ -12,7 +12,25 @@ TDD exercise with .NET Core RC2 including everything you would expect to see:
 * Take in parameters from the command line for a given amount and a set fixed term of 36 months / 3 years.
 * Produce an output of the monthly repayments using compound interest and also the final amount payable.
 
+Example rates file:
+
+```
+Lender,Rate,Available
+Bob,0.005833333,500
+John,0.005833333,500
+```
+
+Produces following output when borrowing 1000 USD:
+
+```
+$ dotnet run
+Payment: 30.87
+Total: 1111.57
+```
+
 ### Todo:
+
+This is task is work-in-progress.
 
 ```
 [X] Calculate weighted average for more than one lender
@@ -23,6 +41,32 @@ TDD exercise with .NET Core RC2 including everything you would expect to see:
 [ ] Remove debug messages
 [ ] Find coverage tool that works with DNCore
 ```
+
+### Development without Docker
+
+**If you do not use Docker, then please install the below:**
+
+Follow instructions for installing dotnet runtime from: [microsoft.com/net/core](https://www.microsoft.com/net/core#macos)
+
+Without Docker:
+
+* Running the unit tests
+
+```
+$ git clone https://github.com/alexellis/dncore-market-rates
+$ cd dncore-market-rates/test/RateCalc.Engine.Tests/
+$ dotnet restore
+$ dotnet test
+```
+
+* Running the app
+
+```
+$ cd dncore-market-rates/src/RateCalc.App
+$ dotnet restore
+$ dotnet run
+```
+
 
 ### Using Docker to run / test the application
 
