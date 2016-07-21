@@ -2,8 +2,8 @@
 
 TDD exercise with .NET Core RC2 including everything you would expect to see:
 
-* Moq for mocking dependencies
-* FluentAssertions for BDD-style testing
+* [Moq](https://github.com/moq/moq) for mocking dependencies
+* [FluentAssertions](https://github.com/dennisdoomen/FluentAssertions) for BDD-style testing `x.Should().Be(100)` etc
 * Dockerfile for building and running the application without having to set up a runtime
 
 ### The task
