@@ -6,7 +6,7 @@ TDD exercise with .NET Core RC2 including everything you would expect to see:
 * [FluentAssertions](https://github.com/dennisdoomen/FluentAssertions) for BDD-style testing `x.Should().Be(100)` etc
 * Dockerfile for building and running the application without having to set up a runtime
 
-### The task
+### The task: provide loan quotes & repayment details
 
 * Read in a markets.csv file containing various individuals with money to lend at various rates
 * Take in parameters from the command line for a given amount and a set fixed term of 36 months / 3 years.
