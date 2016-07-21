@@ -3,6 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 
 namespace RateCalc.Engine {
+    
+    // Could be moved to .Model namespace and or directory
+    public class LoanOffer {
+        public double Target {get;set;}
+        public double Rate {get;set;}
+        public bool FundsAvailable {get;set;}
+    }
+    
     public class Loan {
 
         private class LoanAggregate {
@@ -13,12 +21,6 @@ namespace RateCalc.Engine {
                     return Amount * Rate*12; 
                 }
             }
-        }
-
-        public class LoanOffer {
-            public double Target {get;set;}
-            public double Rate {get;set;}
-            public bool FundsAvailable {get;set;}
         }
         
         private LenderTable _table;
