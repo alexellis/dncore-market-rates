@@ -14,6 +14,7 @@ TDD exercise with .NET Core RC2 including everything you would expect to see:
 
 ### Todo:
 
+```
 [X] Calculate weighted average for more than one lender
 [X] Pick funds from cheapest lenders first
 [X] Check for multiples of 100 USD
@@ -21,6 +22,7 @@ TDD exercise with .NET Core RC2 including everything you would expect to see:
 [ ] Validate upper borrowing limit
 [ ] Remove debug messages
 [ ] Find coverage tool that works with DNCore
+```
 
 ### Using Docker to run / test the application
 
