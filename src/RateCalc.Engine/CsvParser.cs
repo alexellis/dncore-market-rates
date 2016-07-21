@@ -8,7 +8,11 @@ namespace RateCalc.Engine
     string Read(string uri);    
   }
 
-  public class CsvParser {
+  public interface ICsvParser {
+    IEnumerable<CsvLine> Read(string uri);
+  }
+
+  public class CsvParser : ICsvParser {
       private readonly IFileSource _fileSource;
 
       public CsvParser(IFileSource fileSource) {
