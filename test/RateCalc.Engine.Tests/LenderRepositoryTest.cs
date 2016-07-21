@@ -28,9 +28,10 @@ namespace RateCalc.Engine.Test
             LenderTable table = repo.Read();
 
             var lender = table.GetLender("Alex");
-            lender.Rate.Should().Be(0.069M);
-            lender.Available.Should().Be(480M);
+            lender.Rate.Should().Be(0.069);
+            lender.Available.Should().Be(480);
         }
+
         [Fact]
         public void ConvertMultipleEntities_ToLenderModel_Test() 
         {
@@ -56,7 +57,7 @@ namespace RateCalc.Engine.Test
 
             var daveLender = table.GetLender("Dave");
             daveLender.Name.Should().Be("Dave");
-            daveLender.Rate.Should().Be(0.074M);
+            daveLender.Rate.Should().Be(0.074);
         }
 
         [Fact]

@@ -7,18 +7,36 @@ namespace RateCalc.Engine
 {
   public class Lender {
     public string Name {get;set;}
-    public decimal Rate {get;set;}
-    public decimal Available {get;set;}
+    public double Rate {get;set;}
+    public double Available {get;set;}
   }
 
   public class LenderTable {
-    private readonly List<Lender> _lenders;
+    private List<Lender> _lenders;
 
-    public LenderTable() {
-      _lenders = new List<Lender>();
+    public LenderTable(List<Lender> lenders) {
+      _lenders = lenders;
+
     }
 
-    public void Add(string name, decimal rate, decimal available) {
+    public LenderTable() : this(new List<Lender>()) {
+
+    }
+
+    public int Count() {
+      return _lenders.Count;
+    }
+
+    public Lender Get(int index) {
+      return _lenders[index];
+    }
+
+
+    public LenderTable Sort() {
+      return new LenderTable(_lenders.OrderBy(x => x.Rate).ToList<Lender>());
+    }
+
+    public void Add(string name, double rate, double available) {
       _lenders.Add(new Lender {
         Name = name,
         Rate = rate,
@@ -32,19 +50,19 @@ namespace RateCalc.Engine
   }
 
   public class LenderRepository {
-      private readonly List<CsvLine> _entries;
+      private readonly IEnumerable<CsvLine> _entries;
 
-      public LenderRepository(List<CsvLine> entries) {
+      public LenderRepository(IEnumerable<CsvLine> entries) {
         _entries = entries;
       }
       
       public LenderTable Read() {
         var table = new LenderTable();
         foreach(var entry in _entries) {
-          table.Add(entry.Parts[0], Convert.ToDecimal(entry.Parts[1]),  Convert.ToDecimal(entry.Parts[2]));
+          table.Add(entry.Parts[0], Convert.ToDouble(entry.Parts[1]),  Convert.ToDouble(entry.Parts[2]));
         }
-        
+       
         return table;
       }
   }
-} 
+}
