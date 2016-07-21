@@ -18,11 +18,13 @@ namespace RateCalc.App
             var lenderRepo = new LenderRepository(lines);
             LenderTable table = lenderRepo.Read();
             var loan = new Loan(table);
+            
             double target = 1000;
             var offer = loan.Request(target);
 
             var projector = new LoanProjector();
             var projection = projector.Get(offer.Rate, 36, offer.Target);
+            Console.WriteLine("Rate: " + offer.Rate.ToString() +" target=" + offer.Target);
             Console.WriteLine("Payment: " + projection.Payment.ToString());
             Console.WriteLine("Total: " + projection.TotalPayable.ToString());
         }
