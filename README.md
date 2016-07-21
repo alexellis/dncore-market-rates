@@ -42,6 +42,14 @@ This is task is work-in-progress.
 [ ] Find coverage tool that works with DNCore
 ```
 
+Out of scope:
+
+This task was originally estimated at 2-3 hours by source, so these things are probably out of scope:
+
+```
+[ ] Use Unity or some other dependency injection tool
+```
+
 ### Development without Docker
 
 **If you do not use Docker, then please install the below:**
