@@ -15,9 +15,11 @@ namespace RateCalc.Engine.Test
         // Validation could be moved via SRP into separate class. 
         [Fact]
         public void WorkedExampleVerification_Test() {
+            var rate = 7.0/100;
+            //(double)(7.0/100/12);
 
             var sut = new LoanProjector();
-            Projection projection = sut.Get((double)(7.0/100/12), 36, 1000);
+            Projection projection = sut.Get(rate, 36, 1000);
             projection.Should().NotBeNull();
             Math.Round(projection.Payment,2).Should().Be(Math.Round(30.8770968653718,2));
 

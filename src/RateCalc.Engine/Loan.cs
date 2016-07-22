@@ -61,7 +61,7 @@ namespace RateCalc.Engine {
             }
             loan.Rate = weightedTotal / totalLoan;
             loan.Target = totalLoan;
-            // Console.WriteLine("total="+totalLoan+" weightedTotal="+weightedTotal+" Rate="+loan.Rate );
+            //Console.WriteLine("total="+totalLoan+" weightedTotal="+weightedTotal+" Rate="+loan.Rate );
             loan.FundsAvailable = true;
             
             return loan;

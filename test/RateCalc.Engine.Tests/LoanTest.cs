@@ -42,19 +42,19 @@ namespace RateCalc.Engine.Test
             List<CsvLine> list = new List<CsvLine>();
             var entry1 = new CsvLine();
             entry1.Parts.Add("Alex");
-            entry1.Parts.Add("0.5");
+            entry1.Parts.Add("0.005833333");
             entry1.Parts.Add("150");
             list.Add(entry1);
 
             var entry2 = new CsvLine();
             entry2.Parts.Add("Dave");
-            entry2.Parts.Add("1.0");
+            entry2.Parts.Add("0.005833333");
             entry2.Parts.Add("50");
             list.Add(entry2);
 
             var entry3 = new CsvLine();
             entry3.Parts.Add("Dave");
-            entry3.Parts.Add("1.5");
+            entry3.Parts.Add("0.007833333");
             entry3.Parts.Add("200");
             list.Add(entry3);
 
@@ -66,7 +66,9 @@ namespace RateCalc.Engine.Test
             var offer = loan.Request(200);
 
             offer.FundsAvailable.Should().Be(true);
-            offer.Rate.Should().Be(table.Get(0).Rate + table.Get(1).Rate);
+
+            var yearlyWeightedAverage = 0.069999996;
+            offer.Rate.Should().Be(yearlyWeightedAverage);
         }
 
         [Fact]
